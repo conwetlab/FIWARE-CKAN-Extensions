@@ -102,6 +102,41 @@ These *acquired* datasets are also located in the user dashboard under the *Acqu
 NGSI View
 ---------
 
+The NGSI View extension enables the publication of right-time context information as dataset resources by allowing to
+configure a NGSIv2 query.
+
+This queries are provided as dataset resources, so the extension modifies the dataset resource form
+
+.. image:: images/ngsi1.png
+   :align: center
+   :scale: 50%
+
+Once creating the dataset resource, it is needed to use *fiware-ngsi* as data type in order to publish the query
+
+.. image:: images/ngsi2.png
+   :align: center
+   :scale: 50%
+
+It can be seen that once the *fiware-ngsi* data type is selected, the extension updates the form limiting the data providing
+mechanism to *URL* and injects a set of Context Broker specific fields
+
+.. image:: images/ngsi3.png
+   :align: center
+   :scale: 50%
+
+These fields are:
+
+* **URL**: Must include the query URL using NGSIv2
+* **Tenant**: Corresponds to the *Fiware-Service* header used by the Context Broker
+* **Service Path**: Corresponds to the *Fiware-ServicePath* header used by the Context Broker
+* **Auth Required**: Whether to inject the OAuth2 access token of the logged user in the request, that is, the Context Broker is secured
+
+Once the resource has been configured, the resource page includes the executed query and the result in JSON
+
+.. image:: images/ngsi4.png
+   :align: center
+   :scale: 50%
+
 -------------
 BAE Publisher
 -------------
