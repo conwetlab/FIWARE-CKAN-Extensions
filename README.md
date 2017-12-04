@@ -5,7 +5,6 @@
 * [Installation](#installation)
 * [API Overview](#api-overview)
 * [API Reference](#api-reference)
-* [Testing](#testing)
 * [Advanced Topics](#advanced-topics)
 
 # Introduction
@@ -14,7 +13,7 @@ This is the main repository of the FIWARE CKAN extensions. This project is part 
 
 The FIWARE CKAN extensions project is not a single repository, but it is composed of
 a set projects, each of them implementing a different CKAN extension, that together with
-with [CKAN](https://ckan.org/) made up the FIWARE Extended CKAN portal.
+with [CKAN](https://ckan.org/) made up the [FIWARE Extended CKAN portal](https://catalogue.fiware.org/enablers/ckan).
 
 In particular, the following extensions have been created:
 
@@ -39,12 +38,67 @@ data demands.
 
 # GEi Overall Description
 
+
+[CKAN](https://ckan.org/) is an open data publication platform, widely extended, which enable
+the publication, search, discovery and consumption of open datasets.
+
+In this context, the FIWARE CKAN extensions enhance the default CKAN features in order to
+integrate this tool within the FIWARE ecosystem, supporting the publication, management and
+rich visualization of right-time context data, while improving the access control and 
+enabling data monetization. 
+
+
 # Installation
+
+The detailed instructions on how to install the FIWARE CKAN Extensions can be found at the [Installation Guide](http://fiware-ckan-extensions.readthedocs.io/en/latest/installation-administration-guide.html).
+
+In general, CKAN extensions can be installed using python, following the next steps:
+
+* Download the plugin from the repository and access it:
+
+```
+$ git clone https://github.com/<plugin_repo>
+$ cd <plugin_repo>
+```
+
+* Activate CKAN virtual environment
+
+```
+$ . /usr/lib/ckan/default/bin/activate
+```
+
+* Install the extension
+
+```
+$ python setup.py install
+```
+
+> **Note**: If you want to install the plugin for development, you can use the following command:
+> ```
+> $ python setup.py develop
+> ```
 
 # API Overview
 
+The different extensions provide an API that can be used in order to manage its features
+programmatically without using the web portal. In particular:
+
+* OAuth2:
+* Private Datasets:
+* NGSI View:
+* BAE Publisher:
+* WireCloud view:
+* Data Requests:
+
 # API Reference
 
-# Testing
+For further documentation, you can check the API Reference available at:
+
+* [Apiary](https://fiwareckanextensions.docs.apiary.io/#)
 
 # Advanced Topics
+
+* [User & Programmers Guide](doc/user-programmer-guide.rst)
+* [Installation & Administration Guide](doc/installation-administration-guide.rst)
+
+You can also find this documentation on [ReadTheDocs](http://fiware-ckan-extensions.readthedocs.io/)
