@@ -153,6 +153,7 @@ In addition, some settings can be configured in order to customize the extension
     ckan.privatedatasets.show_acquire_url_on_edit = True
 
 With the following meaning:
+
 * **parser**: Class used to parse user access grants and revokes to datasets.
 * **show_acquire_url_on_create**: Whether to show the acquire URL (URL where access grants can be obtained) on dataset creation form
 * **show_acquire_url_on_edit**: Whether to show the acquire URL on dataset update form
@@ -303,6 +304,7 @@ In addition, it is necessary to configure some settings related with the WireClo
     ckan.wirecloud_view.editor_dashboard = wirecloud/ckan-editor
 
 With the following meaning:
+
 * **url**: URL of the WireCloud server
 * **editor_dashboard**: Dashboard in the WireCloud instance used as wizard for basic dashboard creation
 
@@ -352,5 +354,6 @@ Additionally, it is possible to customize the behaviour of the extension by incl
     ckan.datarequests.show_datarequests_badge = true
 
 With the following meaning:
+
 * **comments**: Whether the comments system is enabled or not
 * **show_datarequests_badge**: Whether to show the number of data requests in a badge in the menu
