@@ -183,7 +183,40 @@ The fields to fill are:
 WireCloud View
 --------------
 
+The WireCloud View extension allows to embed a WireCloud dashboard in CKAN as a dataset resource view. This way its is
+possible to create rich and customizable data visualizations (including right-time NGSI) without the need of installing
+new specific CKAN view extensions or restarting the CKAN instance.
 
+The first step for embedding a WireCloud Dashboard is accessing the Management section of the particular data resource.
+
+.. image:: images/wire1.png
+   :align: center
+   :scale: 50%
+
+And accessing to the *Views* tab
+
+.. image:: images/wire2.png
+   :align: center
+   :scale: 50%
+
+The WireCloud view is one of the allowed ones.
+
+.. image:: images/wire3.png
+   :align: center
+   :scale: 50%
+
+For creating the view, it is needed to provide a name and a description. Then, the user can select one of the available
+visualization dashboards.
+
+.. image:: images/wire4.png
+   :align: center
+   :scale: 50%
+
+Once created, the dashboard is included as a resource visualization.
+
+.. image:: images/wire5.png
+   :align: center
+   :scale: 50%
 
 -------------
 Data Requests
