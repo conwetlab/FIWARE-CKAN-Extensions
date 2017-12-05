@@ -141,9 +141,49 @@ Once the resource has been configured, the resource page includes the executed q
 BAE Publisher
 -------------
 
+The BAE Publisher extension integrates CKAN with an instance of the Business API Ecosystem GE by providing a form that
+can be filled in order to create products and offerings of private datasets directly from the CKAN interface.
+
+This extension automatically fills the *Acquire URL* field of the dataset, so it delegates in the Private Dataset extension
+the access control management in the CKAN portal.
+
+To publish a private dataset as an offering in the BAE, the first step is accessing to its *Management* section.
+
+.. image:: images/bae1.png
+   :align: center
+   :scale: 50%
+
+The publication form is located under the *Publish* tab
+
+.. image:: images/bae2.png
+   :align: center
+   :scale: 50%
+
+The extension accesses the BAE API in order to retrieve some basic information (Available categories and user catalogs) and
+presents a single form that can be used in order to create a product and a basic offering in the BAE
+
+.. image:: images/bae3.png
+   :align: center
+   :scale: 50%
+
+The fields to fill are:
+
+* **Name**: Name of the offering to be created in the BAE
+* **Description**: Description of the offering to be created in the BAE
+* **Categories**: List of categories for the offering to be created. The available list of categories is retrieved from the BAE
+* **Catalog**: Catalog where publishing the offering to be created. The list of available user catalogs are retrieved from the BAE
+* **Version**: Version of the offering to be created in the BAE
+* **License**: Header of the terms and conditions to be accepted by customers
+* **License Description**: Text of the terms and conditions to be accepted by customers
+* **Acquisition Role**: If the dataset includes a secured backend service (e.g a Context Broker), role to be granted to the customers so they can access directly to the data service
+* **Image**: Image to be displayed with the offering, by default the CKAN logo
+* **Price**: Price of the offering or none if the offering is free. For the creation of more complex price models the BAE interface should be used, see the `BAE user guide <http://business-api-ecosystem.readthedocs.io/en/latest/user-programmer-guide.html>`__ for details on this topic
+
 --------------
 WireCloud View
 --------------
+
+
 
 -------------
 Data Requests

@@ -15,7 +15,7 @@ Please send them to the "Contact Person" email that appears in the `Catalogue pa
 .. _Catalogue page for this GEi: https://catalogue.fiware.org/enablers/ckan
 .. _GitHub Issues: https://github.com/conwetlab/FIWARE-CKAN-Extensions/issues/new
 
-The current version of the software has been tested in CKAN versions 2.3 to 2.7
+The current version of the software has been tested in CKAN versions 2.6 and 2.7
 
 ------
 OAuth2
