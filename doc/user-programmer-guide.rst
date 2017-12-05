@@ -221,3 +221,70 @@ Once created, the dashboard is included as a resource visualization.
 -------------
 Data Requests
 -------------
+
+The Data Requests extension allows users of the platform to ask for data which is not yet published in the CKAN instance, while
+enables admins to manage the lifecycle of that request.
+
+To create a new Data Request, the first step is accessing to the *Data Requests* section included by the extension.
+
+.. image:: images/req1.png
+   :align: center
+   :scale: 50%
+
+And click on *Add Data Request*.
+
+.. image:: images/req2.png
+   :align: center
+   :scale: 50%
+
+In the displayed form, it is needed to provide a title for the request and a complete description of the requested data.
+
+.. image:: images/req3.png
+   :align: center
+   :scale: 50%
+
+Once created, the new data request appears in the *Data Requests* section, being possible to be searched.
+
+.. image:: images/req4.png
+   :align: center
+   :scale: 50%
+
+In addition, it is also possible to view the data request details.
+
+.. image:: images/req5.png
+   :align: center
+   :scale: 50%
+
+This extension allows the creation of comments, so it enables the communication between data requesters and data providers
+in order to make easier the resolution of the request. This option is available in the *Comments* tab of the data request
+details page.
+
+.. image:: images/req6.png
+   :align: center
+   :scale: 50%
+
+Once the data has been provided or it has been decided that the request cannot be satisfied, it is possible to close the
+request by clicking on the *Close* button of the data request details.
+
+.. image:: images/req7.png
+   :align: center
+   :scale: 50%
+
+Then, the extension will ask for the dataset which satisfies the request. If the data request is being closed because it cannot
+be satisfied, it is possible to leave this value to *No Dataset*
+
+.. image:: images/req8.png
+   :align: center
+   :scale: 50%
+
+Now, the data request appears are closed in the list.
+
+.. image:: images/req9.png
+   :align: center
+   :scale: 50%
+
+Finally, it is possible to manage requests updating the title or description or deleting it from CKAN.
+
+.. image:: images/req10.png
+   :align: center
+   :scale: 50%
