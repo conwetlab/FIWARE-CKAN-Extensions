@@ -249,7 +249,7 @@ file. In addition, it is necessary to configure the URL of the BAE instance to b
 
     ckan.plugins = baepublisher <other-plugins>
 
-    ckan.storepublisher.store_url = https://YOUR_BAE_INSTANCE/
+    ckan.baepublisher.store_url = https://YOUR_BAE_INSTANCE/
 
 --------------
 WireCloud View
