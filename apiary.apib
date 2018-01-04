@@ -43,12 +43,14 @@ who actively contributed to this specification
 This specification is licensed under the
 [FIWARE Open Specification License (implicit patent license)](https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Implicit_Patents_License).
 
-## Acquisitions list [/api/3/action/acquisitions_list]
+# Group Private Datasets extension
 
-### List of datasets the user has permission to access [POST]
+## Acquisitions list [/api/3/action/acquisitions_list]
 
 List the datasets a given user has access to. The user parameter is
 optional, if not provided the managed user will be the one making the request.
+
+### List of datasets the user has permission to access [POST]
 
 + Request (application/json)
 
@@ -152,10 +154,10 @@ optional, if not provided the managed user will be the one making the request.
 
 ## Grant access [/api/3/action/package_acquired]
 
-### Grant dataset access to a user [POST]
-
 Grant user access to a set of provided datasets. The datasets are specified
 using their URL
+
+### Grant dataset access to a user [POST]
 
 + Request (application/json)
 
@@ -184,10 +186,10 @@ using their URL
 
 ## Revoke access [/api/3/action/revoke_access]
 
-### Revoke dataset access to a user [POST]
-
 Revoke user access to a set of provided datasets. The datasets are specified
 using their URL
+
+### Revoke dataset access to a user [POST]
 
 + Request (application/json)
 
@@ -210,6 +212,291 @@ using their URL
 
             {
                 "help": "https://data.lab.fiware.org/api/3/action/help_show?name=revoke_access",
+                "success": true,
+                "result": null
+            }
+
+# Group Data Requests extension
+
+## Create Data Request [/api/3/action/create_datarequest]
+
+Action to create a new data request. This function checks the access rights of the user before
+creating the data request. If the user is not allowed, a NotAuthorized exception will be risen.
+
+### Create Data Request [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "title": "Some Data",
+                "description": "Some data regarding some stuff",
+                "organization_id": ""
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=create_datarequest",
+                "success": true,
+                "result": {
+                    "description": "Some data regarding some stuff",
+                    "organization_id": null,
+                    "user": {
+                        "openid": null,
+                        "about": null,
+                        "apikey": "0181d886-5ffc-4aa7-984e-7fb431e19412",
+                        "display_name": "fdelavega",
+                        "name": "fdelavega",
+                        "created": "2017-10-05T10:14:31.194985",
+                        "email_hash": "630ba4823fee2d7b2d37fb11595ec906",
+                        "email": "fdelavega@conwet.com",
+                        "sysadmin": true,
+                        "activity_streams_email_notifications": false,
+                        "state": "active",
+                        "number_of_edits": 57,
+                        "fullname": "fdelavega",
+                        "id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                        "number_created_packages": 11
+                    },
+                    "id": "15384349-f021-4cfe-9502-624aac6b8067",
+                    "close_time": null,
+                    "user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                    "open_time": "2018-01-04 17:17:12.652411",
+                    "accepted_dataset": null,
+                    "title": "Some Data",
+                    "accepted_dataset_id": null,
+                    "followers": 0,
+                    "closed": false,
+                    "organization": null
+                }
+            }
+
+## Show Data Request [/api/3/action/show_datarequest]
+
+Action to retrieve the information of a data request. The only required parameter is the id of
+the data request. A NotFound exception will be risen if the id is not found
+
+### Show Data Request [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "id": "15384349-f021-4cfe-9502-624aac6b8067"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=show_datarequest",
+                "success": true,
+                "result": {
+                    "description": "Some data regarding some stuff",
+                    "organization_id": null,
+                    "user": {
+                        "openid": null,
+                        "about": null,
+                        "apikey": "0181d886-5ffc-4aa7-984e-7fb431e19412",
+                        "display_name": "fdelavega",
+                        "name": "fdelavega",
+                        "created": "2017-10-05T10:14:31.194985",
+                        "email_hash": "630ba4823fee2d7b2d37fb11595ec906",
+                        "email": "fdelavega@conwet.com",
+                        "sysadmin": true,
+                        "activity_streams_email_notifications": false,
+                        "state": "active",
+                        "number_of_edits": 57,
+                        "fullname": "fdelavega",
+                        "id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                        "number_created_packages": 11
+                    },
+                    "id": "15384349-f021-4cfe-9502-624aac6b8067",
+                    "close_time": null,
+                    "user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                    "open_time": "2018-01-04 17:17:12.652411",
+                    "accepted_dataset": null,
+                    "title": "Some Data",
+                    "accepted_dataset_id": null,
+                    "followers": 0,
+                    "closed": false,
+                    "organization": null
+                }
+            }
+
+## Update Data Request [/api/3/action/update_datarequest]
+
+Action to update a data request. The function checks the access rights of the user before
+updating the data request. If the user is not allowed, a NotAuthorized exception will be risen
+
+### Update Data Request [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "id": "15384349-f021-4cfe-9502-624aac6b8067",
+                "title": "Some Data",
+                "description": "Some data regarding some stuff",
+                "organization_id": ""
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=update_datarequest",
+                "success": true,
+                "result": {
+                    "description": "Some data regarding some stuff",
+                    "organization_id": null,
+                    "user": {
+                        "openid": null,
+                        "about": null,
+                        "apikey": "0181d886-5ffc-4aa7-984e-7fb431e19412",
+                        "display_name": "fdelavega",
+                        "name": "fdelavega",
+                        "created": "2017-10-05T10:14:31.194985",
+                        "email_hash": "630ba4823fee2d7b2d37fb11595ec906",
+                        "email": "fdelavega@conwet.com",
+                        "sysadmin": true,
+                        "activity_streams_email_notifications": false,
+                        "state": "active",
+                        "number_of_edits": 57,
+                        "fullname": "fdelavega",
+                        "id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                        "number_created_packages": 11
+                    },
+                    "id": "15384349-f021-4cfe-9502-624aac6b8067",
+                    "close_time": null,
+                    "user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                    "open_time": "2018-01-04 17:17:12.652411",
+                    "accepted_dataset": null,
+                    "title": "Some Data",
+                    "accepted_dataset_id": null,
+                    "followers": 0,
+                    "closed": false,
+                    "organization": null
+                }
+            }
+
+## List Data Requests [/api/3/action/list_datarequests]
+
+Returns a list with the existing data requests. Rights access will be checked before returning
+the results. If the user is not allowed, a NotAuthorized exception will be risen
+
+### List Data Requests [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {}
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=list_datarequests",
+                "success": true,
+                "result": 
+                    {
+                        "count": 2,
+                        "facets": {
+                            "state": {
+                                "items": [
+                                    {
+                                        "count": 1,
+                                        "display_name": "Open",
+                                        "name": "open"
+                                    }
+                                ]
+                            }
+                        },
+                        "result": [{
+                            "description": "Some data regarding some stuff",
+                            "organization_id": null,
+                            "user": {
+                                "openid": null,
+                                "about": null,
+                                "apikey": "0181d886-5ffc-4aa7-984e-7fb431e19412",
+                                "display_name": "fdelavega",
+                                "name": "fdelavega",
+                                "created": "2017-10-05T10:14:31.194985",
+                                "email_hash": "630ba4823fee2d7b2d37fb11595ec906",
+                                "email": "fdelavega@conwet.com",
+                                "sysadmin": true,
+                                "activity_streams_email_notifications": false,
+                                "state": "active",
+                                "number_of_edits": 57,
+                                "fullname": "fdelavega",
+                                "id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                                "number_created_packages": 11
+                            },
+                            "id": "15384349-f021-4cfe-9502-624aac6b8067",
+                            "close_time": null,
+                            "user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                            "open_time": "2018-01-04 17:17:12.652411",
+                            "accepted_dataset": null,
+                            "title": "Some Data",
+                            "accepted_dataset_id": null,
+                            "followers": 0,
+                            "closed": false,
+                            "organization": null
+                        }]
+                    }
+            }
+
+## Delete Data Request [/api/3/action/delete_datarequest]
+
+Action to delete a data request. The function checks the access rights of the user before
+deleting the data request. If the user is not allowed, a NotAuthorized exception will be risen.
+
+### Delete Data Request [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "id": "15384349-f021-4cfe-9502-624aac6b8067"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=delete_datarequest",
                 "success": true,
                 "result": null
             }
