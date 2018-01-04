@@ -83,13 +83,25 @@ $ python setup.py install
 The different extensions provide an API that can be used in order to manage its features
 programmatically without using the web portal. In particular:
 
-* OAuth2:
 * Private Datasets:
-* NGSI View:
-* BAE Publisher:
-* WireCloud view:
+  * **acquisitions_list**: Lists all the private datasets a particular user has been granted access to
+  * **package_acquired**: Includes a particular user in the list of authorized users of a set of datasets
+  * **revoke_access**: Removes a particular user from the list of authorized users of a set of datasets
 * Data Requests:
-
+  * **create_datarequest**: Creates a new data request
+  * **show_datarequest**: Retrieves the information of a data request
+  * **update_datarequest**: Updates a data request
+  * **list_datarequests**: Lists the existing data requests
+  * **delete_datarequest**: Deletes a data request
+  * **close_datarequest**: Closes a data request
+  * **comment_datarequest**: Creates a comment in a data request
+  * **show_datarequest_comment**: Shows the comments of a data request
+  * **list_datarequest_comments**: Lists the comments of a data request
+  * **update_datarequest_comment**: Updates a comment of a data request
+  * **delete_datarequest_comment**: Deletes a comment from a data request
+  * **follow_datarequest**: Starts following a data request
+  * **unfollow_datarequest**: Stops following a data request
+ 
 # API Reference
 
 For further documentation, you can check the API Reference available at:
