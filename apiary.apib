@@ -1,80 +1,215 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: https://data.lab.fiware.org/
+TITLE: FIWARE CKAN Extensions Open API Specification
+DATE: 01 December 2017
+VERSION: v6.4.0
+APIARY_PROJECT: fiwareckanextensions
+SPEC_URL: https://fiware-tmforum.github.io/Business-API-Ecosystem/
+GITHUB_SOURCE: https://github.com/conwetlab/FIWARE-CKAN-Extensions
 
 # FIWARE CKAN Extensions
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+CKAN **Action API** provides a RPC-style API for accessing all its features, that is,
+all the actions that can be performed in the web interface can also be performed using
+the API. In this regard, actions implemented within CKAN extensions are also exposed
+as part of the CKAN API.
 
-## Questions Collection [/questions]
+The current specification documents the API actions which are provided within the 
+FIWARE CKAN extensions. For information on the core actions provided by CKAN, please
+refer to the [CKAN API Specification](https://ckan.docs.apiary.io/#)
 
-### List All Questions [GET]
+## Editors
 
-+ Response 200 (application/json)
+* Francisco de la Vega, Universidad Politénica de Madrid
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
+## Status
 
-### Create a New Question [POST]
+This is a work in progress and is changing on a daily basis. You can check the latest
+available version on [GitHub](https://github.com/conwetlab/FIWARE-CKAN-Extensions).
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+This specification is licensed under the [FIWARE Open Specification License](https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/FI-WARE_Open_Specification_Legal_Notice_%28implicit_patents_license%29)
+
+## Acknowledgements
+
+The editors would like to express their gratitude to Aitor Magán and Álvaro Arranz
+who actively contributed to this specification
+
+## Copyright
+
+* Copyright © 2017 - 2018 by Universidad Politénica de Madrid
+
+## License
+
+This specification is licensed under the
+[FIWARE Open Specification License (implicit patent license)](https://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/Implicit_Patents_License).
+
+## Acquisitions list [/api/3/action/acquisitions_list]
+
+### List of datasets the user has permission to access [POST]
+
+List the datasets a given user has access to. The user parameter is
+optional, if not provided the managed user will be the one making the request.
 
 + Request (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
     + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
 
-            Location: /questions/2
+    + Body
+    
+            {
+                "user": "fdelavega"
+            }
+
++ Response 200 (application/json)
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=acquisitions_list",
+                "success": true,
+                "result": [
                     {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
+                        "owner_org": "68d2cf15-a6be-45da-85ee-023f2fca46d0",
+                        "maintainer": "",
+                        "searchable": "False",
+                        "relationships_as_object": [],
+                        "private": true,
+                        "maintainer_email": "",
+                        "num_tags": 0,
+                        "acquire_url": "http://store.lab.fiware.org/offering/3",
+                        "metadata_created": "2017-11-15T16:47:10.901524",
+                        "metadata_modified": "2018-01-04T16:12:59.301866",
+                        "author": "",
+                        "author_email": "",
+                        "id": "51be62c5-4513-4186-9df4-148a60b1d9ee",
+                        "state": "active",
+                        "version": "",
+                        "license_id": "cc-by",
+                        "type": "dataset",
+                        "resources": [
+                            {
+                                "cache_last_updated": null,
+                                "package_id": "51be62c5-4513-4186-9df4-148a60b1d9ee",
+                                "datastore_active": false,
+                                "payload": "",
+                                "size": null,
+                                "oauth_req": "true",
+                                "id": "47871688-4b9c-4678-9dc1-381d6d1bd5ee",
+                                "state": "active",
+                                "hash": "",
+                                "description": "",
+                                "format": "",
+                                "mimetype_inner": null,
+                                "url_type": null,
+                                "tenant": "",
+                                "mimetype": null,
+                                "cache_url": null,
+                                "name": "",
+                                "created": "2017-11-15T16:47:58.358274",
+                                "url": "http://context.data.org/query",
+                                "last_modified": null,
+                                "position": 0,
+                                "revision_id": "cff3b738-5703-400c-ab8f-e5ac0f83df04",
+                                "apinf_page": "",
+                                "service_path": "",
+                                "resource_type": null
+                            }
+                        ],
+                        "num_resources": 1,
+                        "tags": [],
+                        "title": "Some Data",
+                        "groups": [],
+                        "creator_user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                        "relationships_as_subject": [],
+                        "name": "seae",
+                        "isopen": true,
+                        "url": "",
+                        "notes": "",
+                        "license_title": "Creative Commons Attribution",
+                        "allowed_users": [
+                            "fdelavega"
+                        ],
+                        "license_url": "http://www.opendefinition.org/licenses/cc-by",
+                        "organization": {
+                            "description": "A sample organization",
+                            "title": "Organization",
+                            "created": "2017-10-18T17:41:31.847773",
+                            "approval_status": "approved",
+                            "is_organization": true,
+                            "state": "active",
+                            "image_url": "",
+                            "revision_id": "260c36eb-1573-4675-b573-5cd81b3eb6ab",
+                            "type": "organization",
+                            "id": "68d2cf15-a6be-45da-85ee-023f2fca46d0",
+                            "name": "anotherorganization"
+                        },
+                        "revision_id": "cff3b738-5703-400c-ab8f-e5ac0f83df04"
                     }
                 ]
+            }
+
+## Grant access [/api/3/action/package_acquired]
+
+### Grant dataset access to a user [POST]
+
+Grant user access to a set of provided datasets. The datasets are specified
+using their URL
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+    
+            {
+                "customer_name": "pablo-nunez",
+                "resources": [{
+                    "url": "https://data.lab.fiware.org/dataset/some-data"
+                }]
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=package_acquired",
+                "success": true,
+                "result": null
+            }
+
+## Revoke access [/api/3/action/revoke_access]
+
+### Revoke dataset access to a user [POST]
+
+Revoke user access to a set of provided datasets. The datasets are specified
+using their URL
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+    
+            {
+                "customer_name": "pablo-nunez",
+                "resources": [{
+                    "url": "https://data.lab.fiware.org/dataset/some-data"
+                }]
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=revoke_access",
+                "success": true,
+                "result": null
             }
