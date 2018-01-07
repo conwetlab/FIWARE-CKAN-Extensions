@@ -500,3 +500,442 @@ deleting the data request. If the user is not allowed, a NotAuthorized exception
                 "success": true,
                 "result": null
             }
+
+## Close Data Request [/api/3/action/close_datarequest]
+
+Action to close a data request. Access rights will be checked before closing the data request.
+If the user is not allowed, a NotAuthorized exception will be risen
+
+### Close Data Request [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "id": "15384349-f021-4cfe-9502-624aac6b8067",
+                "accepted_dataset": "ngsi-madrid-parking-data"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=close_datarequest",
+                "success": true,
+                "result": {
+                    "description": "Some data regarding some stuff",
+                    "organization_id": null,
+                    "user": {
+                        "openid": null,
+                        "about": null,
+                        "apikey": "0181d886-5ffc-4aa7-984e-7fb431e19412",
+                        "display_name": "fdelavega",
+                        "name": "fdelavega",
+                        "created": "2017-10-05T10:14:31.194985",
+                        "email_hash": "630ba4823fee2d7b2d37fb11595ec906",
+                        "email": "fdelavega@conwet.com",
+                        "sysadmin": true,
+                        "activity_streams_email_notifications": false,
+                        "state": "active",
+                        "number_of_edits": 57,
+                        "fullname": "fdelavega",
+                        "id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                        "number_created_packages": 11
+                    },
+                    "id": "15384349-f021-4cfe-9502-624aac6b8067",
+                    "close_time": null,
+                    "user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                    "open_time": "2018-01-04 17:17:12.652411",
+                    "accepted_dataset": {
+                        "license_title": "Creative Commons Attribution",
+                        "maintainer": "",
+                        "relationships_as_object": [],
+                        "private": true,
+                        "maintainer_email": "",
+                        "num_tags": 0,
+                        "id": "c76b2fb5-ca45-490f-8b14-033b7f632cbe",
+                        "metadata_created": "2017-12-05T12:02:43.007530",
+                        "metadata_modified": "2017-12-05T12:03:08.509400",
+                        "author": "",
+                        "author_email": "",
+                        "acquire_url": "",
+                        "state": "active",
+                        "version": "",
+                        "license_id": "cc-by",
+                        "type": "dataset",
+                        "resources": [
+                            {
+                                "cache_last_updated": null,
+                                "package_id": "c76b2fb5-ca45-490f-8b14-033b7f632cbe",
+                                "datastore_active": false,
+                                "id": "e01b594b-37ab-4cf7-8d8f-37189dbd1635",
+                                "size": null,
+                                "oauth_req": "true",
+                                "payload": "",
+                                "state": "active",
+                                "hash": "",
+                                "description": "",
+                                "format": "",
+                                "mimetype_inner": null,
+                                "url_type": null,
+                                "tenant": "",
+                                "mimetype": null,
+                                "cache_url": null,
+                                "name": "",
+                                "created": "2017-12-05T12:03:08.037143",
+                                "url": "http://context.opplafy.eu:1026/v2/entities?options=keyValues&type=Parking",
+                                "last_modified": null,
+                                "position": 0,
+                                "revision_id": "93e64d68-03e2-41ad-8c6f-372f7d34d48a",
+                                "apinf_page": "",
+                                "service_path": "",
+                                "resource_type": null
+                            }
+                        ],
+                        "num_resources": 1,
+                        "tags": [],
+                        "groups": [],
+                        "creator_user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                        "relationships_as_subject": [],
+                        "organization": {
+                            "description": "organization description",
+                            "created": "2017-10-18T17:41:31.847773",
+                            "title": "AnotherOrganization",
+                            "name": "anotherorganization",
+                            "is_organization": true,
+                            "state": "active",
+                            "image_url": "",
+                            "revision_id": "260c36eb-1573-4675-b573-5cd81b3eb6ab",
+                            "type": "organization",
+                            "id": "68d2cf15-a6be-45da-85ee-023f2fca46d0",
+                            "approval_status": "approved"
+                        },
+                        "name": "ngsi-madrid-parking-data",
+                        "isopen": true,
+                        "url": "",
+                        "notes": "",
+                        "owner_org": "68d2cf15-a6be-45da-85ee-023f2fca46d0",
+                        "license_url": "http://www.opendefinition.org/licenses/cc-by",
+                        "title": "NGSI Madrid Parking Data",
+                        "revision_id": "93e64d68-03e2-41ad-8c6f-372f7d34d48a"
+                    },
+                    "title": "Some Data",
+                    "accepted_dataset_id": "ngsi-madrid-parking-data",
+                    "followers": 0,
+                    "closed": true,
+                    "organization": null
+                }
+            }
+
+## Comment Data Request [/api/3/action/comment_datarequest]
+
+Action to create a comment in a data request. Access rights will be checked before creating the
+comment and a NotAuthorized exception will be risen if the user is not allowed to create the
+comment
+
+### Comment Data Request [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "datarequest_id": "15384349-f021-4cfe-9502-624aac6b8067",
+                "comment": "This is a comment"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=comment_datarequest",
+                "success": true,
+                "result": {
+                    "comment": "This is a comment",
+                    "user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                    "user": {
+                        "openid": null,
+                        "about": null,
+                        "apikey": "0181d886-5ffc-4aa7-984e-7fb431e19412",
+                        "display_name": "fdelavega",
+                        "name": "fdelavega",
+                        "created": "2017-10-05T10:14:31.194985",
+                        "email_hash": "630ba4823fee2d7b2d37fb11595ec906",
+                        "email": "fdelavega@conwet.com",
+                        "sysadmin": true,
+                        "activity_streams_email_notifications": false,
+                        "state": "active",
+                        "number_of_edits": 57,
+                        "fullname": "fdelavega",
+                        "id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                        "number_created_packages": 11
+                    },
+                    "time": "2018-01-07 11:10:48.869463",
+                    "datarequest_id": "15384349-f021-4cfe-9502-624aac6b8067",
+                    "id": "67108249-6301-4663-b113-2c4dfebbc977"
+                }
+            }
+
+## Show Data Request Comment [/api/3/action/show_datarequest_comment]
+
+Action to retrieve a comment. Access rights will be checked before getting the comment and a
+NotAuthorized exception will be risen if the user is not allowed to get the comment
+
+### Show Data Request Comment [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "id": "67108249-6301-4663-b113-2c4dfebbc977"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=show_datarequest_comment",
+                "success": true,
+                "result": {
+                    "comment": "This is a comment",
+                    "user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                    "user": {
+                        "openid": null,
+                        "about": null,
+                        "apikey": "0181d886-5ffc-4aa7-984e-7fb431e19412",
+                        "display_name": "fdelavega",
+                        "name": "fdelavega",
+                        "created": "2017-10-05T10:14:31.194985",
+                        "email_hash": "630ba4823fee2d7b2d37fb11595ec906",
+                        "email": "fdelavega@conwet.com",
+                        "sysadmin": true,
+                        "activity_streams_email_notifications": false,
+                        "state": "active",
+                        "number_of_edits": 57,
+                        "fullname": "fdelavega",
+                        "id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                        "number_created_packages": 11
+                    },
+                    "time": "2018-01-07 11:10:48.869463",
+                    "datarequest_id": "15384349-f021-4cfe-9502-624aac6b8067",
+                    "id": "67108249-6301-4663-b113-2c4dfebbc977"
+                }
+            }
+
+## List Data Request Comments [/api/3/action/list_datarequest_comments]
+
+Action to retrieve all the comments of a data request. Access rights will be checked before
+getting the comments and a NotAuthorized exception will be risen if the user is not allowed
+to read the comments
+
+### List Data Request Comments [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "datarequest_id": "15384349-f021-4cfe-9502-624aac6b8067",
+                "sort": "asc
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=list_datarequest_comments",
+                "success": true,
+                "result": [{
+                    "comment": "This is a comment",
+                    "user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                    "user": {
+                        "openid": null,
+                        "about": null,
+                        "apikey": "0181d886-5ffc-4aa7-984e-7fb431e19412",
+                        "display_name": "fdelavega",
+                        "name": "fdelavega",
+                        "created": "2017-10-05T10:14:31.194985",
+                        "email_hash": "630ba4823fee2d7b2d37fb11595ec906",
+                        "email": "fdelavega@conwet.com",
+                        "sysadmin": true,
+                        "activity_streams_email_notifications": false,
+                        "state": "active",
+                        "number_of_edits": 57,
+                        "fullname": "fdelavega",
+                        "id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                        "number_created_packages": 11
+                    },
+                    "time": "2018-01-07 11:10:48.869463",
+                    "datarequest_id": "15384349-f021-4cfe-9502-624aac6b8067",
+                    "id": "67108249-6301-4663-b113-2c4dfebbc977"
+                }]
+            }
+
+## Update Data Request Comment [/api/3/action/update_datarequest_comment]
+
+Action to update a comment of a data request. Access rights will be checked before updating the
+comment and a NotAuthorized exception will be risen if the user is not allowed to update the
+comment
+
+### Update Data Request Comment [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "id": "67108249-6301-4663-b113-2c4dfebbc977",
+                "comment": "This is a new comment"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=update_datarequest_comment",
+                "success": true,
+                "result": {
+                    "comment": "This is a new comment",
+                    "user_id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                    "user": {
+                        "openid": null,
+                        "about": null,
+                        "apikey": "0181d886-5ffc-4aa7-984e-7fb431e19412",
+                        "display_name": "fdelavega",
+                        "name": "fdelavega",
+                        "created": "2017-10-05T10:14:31.194985",
+                        "email_hash": "630ba4823fee2d7b2d37fb11595ec906",
+                        "email": "fdelavega@conwet.com",
+                        "sysadmin": true,
+                        "activity_streams_email_notifications": false,
+                        "state": "active",
+                        "number_of_edits": 57,
+                        "fullname": "fdelavega",
+                        "id": "2a55200e-e5b8-481a-b081-5650109f440a",
+                        "number_created_packages": 11
+                    },
+                    "time": "2018-01-07 11:10:48.869463",
+                    "datarequest_id": "15384349-f021-4cfe-9502-624aac6b8067",
+                    "id": "67108249-6301-4663-b113-2c4dfebbc977"
+                }
+            }
+
+## Delete Data Request Comment [/api/3/action/delete_datarequest_comment]
+
+Action to delete a comment of a data request. Access rights will be checked before deleting the
+comment and a NotAuthorized exception will be risen if the user is not allowed to delete the
+comment
+
+### Delete Data Request Comment [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "id": "67108249-6301-4663-b113-2c4dfebbc977"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=delete_datarequest_comment",
+                "success": true,
+                "result": null
+            }
+
+## Follow Data Request [/api/3/action/follow_datarequest]
+
+Action to follow a data request. Access rights will be cheked before following a datarequest
+and a NotAuthorized exception will be risen if the user is not allowed to follow the given
+datarequest. ValidationError will be risen if the datarequest ID is not included or if the user
+is already following the datarequest. ObjectNotFound will be risen if the given datarequest does
+not exist.
+
+### Follow Data Request [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "id": "67108249-6301-4663-b113-2c4dfebbc977"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=follow_datarequest",
+                "success": true,
+                "result": null
+            }
+
+## Unfollow Data Request [/api/3/action/unfollow_datarequest]
+
+Action to unfollow a data request. Access rights will be cheked before unfollowing a datarequest
+and a NotAuthorized exception will be risen if the user is not allowed to unfollow the given
+datarequest. ValidationError will be risen if the datarequest ID is not included in the request.
+ObjectNotFound will be risen if the user is not following the given datarequest.
+
+### Unfollow Data Request [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: Bearer ACCESS_TOKEN
+
+    + Body
+
+            {
+                "id": "67108249-6301-4663-b113-2c4dfebbc977"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "help": "https://data.lab.fiware.org/api/3/action/help_show?name=unfollow_datarequest",
+                "success": true,
+                "result": null
+            }
