@@ -57,7 +57,7 @@ set_environment () {
 
 write_config () {
     ckan-paster make-config --no-interactive ckan "${CONFIG}"
-    sed -ri "s/^(ckan.plugins = .+)/\1 oauth2/" /etc/ckan/default/production.ini
+    sed -ri "s/^(ckan.plugins = .+)/\1 oauth2 privatedatasets/" /etc/ckan/default/production.ini
 }
 
 # If we don't already have a config file, bootstrap
