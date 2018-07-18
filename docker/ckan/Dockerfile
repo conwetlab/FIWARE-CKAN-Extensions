@@ -38,4 +38,4 @@ EXPOSE 5000
 ENTRYPOINT ["/entrypoint.sh"]
 
 RUN . /usr/lib/ckan/default/bin/activate && \
-    pip install ckanext-oauth2 ckanext-privatedatasets
+    pip install ckanext-oauth2 ckanext-privatedatasets ckanext-right_time_context
