@@ -65,7 +65,7 @@ services:
         restart: always
         image: ckan/solr
         volumes:
-            - ./solr-data:/var/lib/solr
+            - ./solr-data/:/opt/solr/server/solr/ckan/data
 
     ckan_postgres:
         restart: always
