@@ -57,6 +57,9 @@ services:
             - CKAN_WIRECLOUD_VIEW_URL=${CKAN_WIRECLOUD_VIEW_URL}
             - CKAN_WIRECLOUD_VIEW_EDITOR_DASHBOARD=${CKAN_WIRECLOUD_VIEW_EDITOR_DASHBOARD}
 
+            # BAE publisher
+            - CKAN_BAEPUBLISHER_STORE_URL=${CKAN_BAEPUBLISHER_STORE_URL}
+
     ckan_datapusher:
         restart: always
         image: clementmouchet/datapusher

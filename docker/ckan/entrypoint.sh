@@ -21,7 +21,7 @@ abort () {
 
 write_config () {
     ckan-paster make-config --no-interactive ckan "${CONFIG}"
-    sed -ri "s/^(ckan.plugins = .+)/\1 oauth2 privatedatasets resource_proxy right_time_context wirecloud_view/" /etc/ckan/default/production.ini
+    sed -ri "s/^(ckan.plugins = .+)/\1 oauth2 privatedatasets resource_proxy right_time_context wirecloud_view baepublisher/" /etc/ckan/default/production.ini
     sed -ri "s/^(ckan.views.default_views = .+)/\1 ngsi_view/" /etc/ckan/default/production.ini
 }
 
