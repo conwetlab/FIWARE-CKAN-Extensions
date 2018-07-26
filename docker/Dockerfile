@@ -10,7 +10,7 @@ RUN apt-get update && apt install -y python-dev libpq-dev python-pip python-virt
     chown `whoami` /usr/lib/ckan/default && \
     virtualenv --no-site-packages /usr/lib/ckan/default && \
     . /usr/lib/ckan/default/bin/activate && \
-    pip install -e 'git+https://github.com/ckan/ckan.git@ckan-2.8.0#egg=ckan' && \
+    pip install -e 'git+https://github.com/ckan/ckan.git@ckan-2.8.1#egg=ckan' && \
     pip install -r /usr/lib/ckan/default/src/ckan/requirement-setuptools.txt && \
     pip install -r /usr/lib/ckan/default/src/ckan/requirements.txt && \
     deactivate && \
