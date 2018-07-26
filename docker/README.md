@@ -1,7 +1,7 @@
-# Supported tags and respective `Dockerfile` links #
+# Supported tags and respective `Dockerfile` links
 
-- [`2.8`, `latest`](https://github.com/conwetlab/FIWARE-CKAN-Extensions/docker/Dockerfile)
-- [`2.7`](https://github.com/conwetlab/FIWARE-CKAN-Extensions/docker/Dockerfile-2.7)
+- [`2.8`, `latest`](https://github.com/conwetlab/FIWARE-CKAN-Extensions/blob/master/docker/Dockerfile)
+- [`2.7`](https://github.com/conwetlab/FIWARE-CKAN-Extensions/blob/master/docker/Dockerfile-2.7)
 
 
 ## What is FIWARE's Extended CKAN?
