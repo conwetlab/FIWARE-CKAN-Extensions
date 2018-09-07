@@ -21,8 +21,31 @@ abort () {
 
 write_config () {
     ckan-paster make-config --no-interactive ckan "${CONFIG}"
-    sed -ri "s/^(ckan.plugins = .+)/\1 oauth2 privatedatasets resource_proxy right_time_context wirecloud_view baepublisher/" /etc/ckan/default/production.ini
-    sed -ri "s/^(ckan.views.default_views = .+)/\1 ngsi_view/" /etc/ckan/default/production.ini
+
+    plugins=""
+
+    if [ ! -z "${CKAN_OAUTH2_AUTHORIZATION_ENDPOINT}" ]; then
+        plugins="${plugins} oauth2"
+    fi
+
+    if [ ! -z "${CKAN_PRIVATEDATASETS_ENABLED}" ]; then
+        plugins="${plugins} privatedatasets"
+    fi
+
+    if [ ! -z "${CKAN_RIGHT_TIME_CONTEXT_ENABLED}" ]; then
+        plugins="${plugins} resource_proxy right_time_context"
+        sed -ri "s/^(ckan.views.default_views = .+)/\1 ngsi_view/" /etc/ckan/default/production.ini
+    fi
+
+    if [ ! -z "${CKAN_WIRECLOUD_VIEW_URL}" ]; then
+        plugins="${plugins} wirecloud_view"
+    fi
+
+    if [ ! -z "${CKAN_BAEPUBLISHER_STORE_URL}" ]; then
+        plugins="${plugins} baepublisher"
+    fi
+
+    sed -ri "s/^(ckan.plugins = .+)/\1 ${plugins}/" /etc/ckan/default/production.ini
 }
 
 # If we don't already have a config file, bootstrap

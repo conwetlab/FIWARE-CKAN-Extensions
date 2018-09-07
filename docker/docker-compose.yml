@@ -26,39 +26,69 @@ services:
             - CKAN_MAX_UPLOAD_SIZE_MB=${CKAN_MAX_UPLOAD_SIZE_MB}
             - CKAN_VERIFY_REQUESTS=True
 
-            # OAuth2
-            - CKAN_OAUTH2_REGISTER_URL=${CKAN_OAUTH2_REGISTER_URL}
-            - CKAN_OAUTH2_RESET_URL=${CKAN_OAUTH2_RESET_URL}
-            - CKAN_OAUTH2_EDIT_URL=${CKAN_OAUTH2_EDIT_URL}
-            - CKAN_OAUTH2_AUTHORIZATION_ENDPOINT=${CKAN_OAUTH2_AUTHORIZATION_ENDPOINT}
-            - CKAN_OAUTH2_TOKEN_ENDPOINT=${CKAN_OAUTH2_TOKEN_ENDPOINT}
-            - CKAN_OAUTH2_PROFILE_API_URL=${CKAN_OAUTH2_PROFILE_API_URL}
-            - CKAN_OAUTH2_CLIENT_ID=${CKAN_OAUTH2_CLIENT_ID}
-            - CKAN_OAUTH2_CLIENT_SECRET=${CKAN_OAUTH2_CLIENT_SECRET}
-            - CKAN_OAUTH2_SCOPE=${CKAN_OAUTH2_SCOPE}
-            - CKAN_OAUTH2_REMEMBERER_NAME=${CKAN_OAUTH2_REMEMBERER_NAME}
-            - CKAN_OAUTH2_PROFILE_API_USER_FIELD=${CKAN_OAUTH2_PROFILE_API_USER_FIELD}
-            - CKAN_OAUTH2_PROFILE_API_FULLNAME_FIELD=${CKAN_OAUTH2_PROFILE_API_FULLNAME_FIELD}
-            - CKAN_OAUTH2_PROFILE_API_MAIL_FIELD=${CKAN_OAUTH2_PROFILE_API_MAIL_FIELD}
-            - CKAN_OAUTH2_AUTHORIZATION_HEADER=${CKAN_OAUTH2_AUTHORIZATION_HEADER}
-            - CKAN_OAUTH2_LEGACY_IDM=${CKAN_OAUTH2_LEGACY_IDM}
-            # DON'T USE THIS SETTING ON PRODUCTION!
-            - OAUTHLIB_INSECURE_TRANSPORT=True
 
-            # Private datasets
-            - CKAN_PRIVATEDATASETS_SHOW_ACQUIRE_URL_ON_CREATE=${CKAN_PRIVATEDATASETS_SHOW_ACQUIRE_URL_ON_CREATE}
-            - CKAN_PRIVATEDATASETS_SHOW_ACQUIRE_URL_ON_EDIT=${CKAN_PRIVATEDATASETS_SHOW_ACQUIRE_URL_ON_EDIT}
-            - CKAN_PRIVATEDATASETS_PARSER=${CKAN_PRIVATEDATASETS_PARSER}
+            #
+            # OAuth2 (uncomment the following environment variables for
+            # enabling this extension)
+            #
+            # See https://github.com/conwetlab/ckanext-oauth2/wiki/Activating-and-Installing
+            #
 
-            # Right time context
-            - CKAN_RIGHT_TIME_CONTEXT_VERIFY_REQUESTS=${CKAN_RIGHT_TIME_CONTEXT_VERIFY_REQUESTS}
+            #- CKAN_OAUTH2_REGISTER_URL=${CKAN_OAUTH2_REGIISTER_URL}
+            #- CKAN_OAUTH2_RESET_URL=${CKAN_OAUTH2_RESET_URL}
+            #- CKAN_OAUTH2_EDIT_URL=${CKAN_OAUTH2_EDIT_URL}
+            #- CKAN_OAUTH2_AUTHORIZATION_ENDPOINT=${CKAN_OAUTH2_AUTHORIZATION_ENDPOINT}
+            #- CKAN_OAUTH2_TOKEN_ENDPOINT=${CKAN_OAUTH2_TOKEN_ENDPOINT}
+            #- CKAN_OAUTH2_PROFILE_API_URL=${CKAN_OAUTH2_PROFILE_API_URL}
+            #- CKAN_OAUTH2_CLIENT_ID=${CKAN_OAUTH2_CLIENT_ID}
+            #- CKAN_OAUTH2_CLIENT_SECRET=${CKAN_OAUTH2_CLIENT_SECRET}
+            #- CKAN_OAUTH2_SCOPE=${CKAN_OAUTH2_SCOPE}
+            #- CKAN_OAUTH2_REMEMBERER_NAME=${CKAN_OAUTH2_REMEMBERER_NAME}
+            #- CKAN_OAUTH2_PROFILE_API_USER_FIELD=${CKAN_OAUTH2_PROFILE_API_USER_FIELD}
+            #- CKAN_OAUTH2_PROFILE_API_FULLNAME_FIELD=${CKAN_OAUTH2_PROFILE_API_FULLNAME_FIELD}
+            #- CKAN_OAUTH2_PROFILE_API_MAIL_FIELD=${CKAN_OAUTH2_PROFILE_API_MAIL_FIELD}
+            #- CKAN_OAUTH2_AUTHORIZATION_HEADER=${CKAN_OAUTH2_AUTHORIZATION_HEADER}
+            #- CKAN_OAUTH2_LEGACY_IDM=${CKAN_OAUTH2_LEGACY_IDM}
+            ## DON'T USE THIS SETTING ON PRODUCTION!
+            #- OAUTHLIB_INSECURE_TRANSPORT=True
 
-            # WireCloud view
-            - CKAN_WIRECLOUD_VIEW_URL=${CKAN_WIRECLOUD_VIEW_URL}
-            - CKAN_WIRECLOUD_VIEW_EDITOR_DASHBOARD=${CKAN_WIRECLOUD_VIEW_EDITOR_DASHBOARD}
 
-            # BAE publisher
-            - CKAN_BAEPUBLISHER_STORE_URL=${CKAN_BAEPUBLISHER_STORE_URL}
+            #
+            # Private datasets (uncomment the following environment variables
+            # for enabling this extension)
+            #
+            #- CKAN_PRIVATEDATASETS_ENABLED=True
+            #- CKAN_PRIVATEDATASETS_SHOW_ACQUIRE_URL_ON_CREATE=${CKAN_PRIVATEDATASETS_SHOW_ACQUIRE_URL_ON_CREATE}
+            #- CKAN_PRIVATEDATASETS_SHOW_ACQUIRE_URL_ON_EDIT=${CKAN_PRIVATEDATASETS_SHOW_ACQUIRE_URL_ON_EDIT}
+            #- CKAN_PRIVATEDATASETS_PARSER=${CKAN_PRIVATEDATASETS_PARSER}
+
+
+            #
+            # Right time context (it is recommended to enable oauth2 extension)
+            #
+            #- CKAN_RIGHT_TIME_CONTEXT_ENABLED=True
+            #- CKAN_RIGHT_TIME_CONTEXT_VERIFY_REQUESTS=True
+
+
+            #
+            # WireCloud view (uncomment the following environment variables for
+            # enabling this extension, requires the oauth2 extension)
+            #
+            # See https://github.com/conwetlab/ckanext-wirecloud_view
+            #
+
+            #- CKAN_WIRECLOUD_VIEW_URL=${CKAN_WIRECLOUD_VIEW_URL}
+            #- CKAN_WIRECLOUD_VIEW_EDITOR_DASHBOARD=${CKAN_WIRECLOUD_VIEW_EDITOR_DASHBOARD}
+
+
+            #
+            # BAE publisher (uncomment the following environment variables for
+            # enabling this extension, requires the oauth2 and privatedatasets extensions)
+            #
+            # See https://github.com/FIWARE-TMForum/ckanext-baepublisher/
+            #
+
+            #- CKAN_BAEPUBLISHER_STORE_URL=${CKAN_BAEPUBLISHER_STORE_URL}
 
     ckan_datapusher:
         restart: always
