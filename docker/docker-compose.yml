@@ -21,7 +21,7 @@ services:
             - CKAN_DATASTORE_READ_URL=postgresql://datastore_ro:${DATASTORE_READONLY_PASSWORD}@ckan_postgres/datastore
             - CKAN_SOLR_URL=http://ckan_solr:8983/solr/ckan
             - CKAN_REDIS_URL=redis://ckan_redis:6379/1
-            - CKAN_DATAPUSHER_URL=http://datapusher:8800
+            - CKAN_DATAPUSHER_URL=http://ckan_datapusher:8800
             - CKAN_SITE_URL=${CKAN_SITE_URL}
             - CKAN_MAX_UPLOAD_SIZE_MB=${CKAN_MAX_UPLOAD_SIZE_MB}
             - CKAN_VERIFY_REQUESTS=True
