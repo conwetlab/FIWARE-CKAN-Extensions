@@ -6,7 +6,7 @@ Installation and Administration Guide
 Introduction
 ------------
 
-This installation and administration guide covers the FIWARE CKAN extensions for the FIWARE release 6. For details on
+This installation and administration guide covers the FIWARE CKAN extensions for the FIWARE release 7. For details on
 the installation of CKAN itself please refer to the `CKAN Installation Guide <http://docs.ckan.org/en/latest/maintaining/installing/index.html>`__
 
 Any feedback on this document is highly welcomed, including bugs, typos or things you think should be included but aren't.
@@ -15,23 +15,17 @@ Please send them to the "Contact Person" email that appears in the `Catalogue pa
 .. _Catalogue page for this GEi: https://catalogue.fiware.org/enablers/ckan
 .. _GitHub Issues: https://github.com/conwetlab/FIWARE-CKAN-Extensions/issues/new
 
-The current version of the software has been tested in CKAN versions 2.6 and 2.7
+The current version of the software has been tested in CKAN versions 2.7, and 2.8
 
 ------
 OAuth2
 ------
 
-This guide covers the installation of the OAuth2 CKAN extension v0.3.8-fiware, compatible with the software provided
-as part of the FIWARE release 6.
+This guide covers the installation of the OAuth2 CKAN extension v0.6.1, compatible with the software provided
+as part of the FIWARE release 7.
 
 Installation
 ++++++++++++
-
-The OAuth2 extension is available in GitHub and can be downloaded with the following commands: ::
-
-    $ git clone https://github.com/conwetlab/ckanext-oauth2
-    $ cd ckanext-oauth2
-    $ git checkout v0.3.8-fiware
 
 To install the extension in CKAN, it is required to activate the CKAN virtual environment as follows: ::
 
@@ -40,12 +34,18 @@ To install the extension in CKAN, it is required to activate the CKAN virtual en
 .. note::
    The previous command is supposing that your CKAN virtualenv is in /usr/lib/ckan/default
 
+The OAuth2 extension is available in pip and can be installed as follows: ::
+
+    $ pip install ckanext-oauth2==0.6.1
+
+If you want to install the extension for development, you can download it with the following commands: ::
+
+    $ git clone https://github.com/conwetlab/ckanext-oauth2
+    $ cd ckanext-oauth2
+    $ git checkout v0.6.1
+
 Once the extension has been downloaded and the virtualenv has been activated, the extension can be installed with the
 following command: ::
-
-    $ python setup.py install
-
-Or if you want to install the extension for development: ::
 
     $ python setup.py develop
 
@@ -109,17 +109,11 @@ Finally, the callback URL that must be used in the IDM for registering CKAN is: 
 Private Datasets
 ----------------
 
-This guide covers the installation of the Private Datasets CKAN extension v0.3, compatible with the software provided
-as part of the FIWARE release 6.
+This guide covers the installation of the Private Datasets CKAN extension v0.4, compatible with the software provided
+as part of the FIWARE release 7.
 
 Installation
 ++++++++++++
-
-The Private Datasets extension is available in GitHub and can be downloaded with the following commands: ::
-
-    $ git clone https://github.com/conwetlab/ckanext-privatedatasets
-    $ cd ckanext-privatedatasets
-    $ git checkout v0.3
 
 To install the extension in CKAN, it is required to activate the CKAN virtual environment as follows: ::
 
@@ -128,12 +122,19 @@ To install the extension in CKAN, it is required to activate the CKAN virtual en
 .. note::
    The previous command is supposing that your CKAN virtualenv is in /usr/lib/ckan/default
 
+The Private Datasets extension is available in pip and can be installed with the following command: ::
+
+    $ pip install ckanext-privatedatasets==0.4
+
+If you want to install the extension for development, you can download it with the following commands: ::
+
+    $ git clone https://github.com/conwetlab/ckanext-privatedatasets
+    $ cd ckanext-privatedatasets
+    $ git checkout v0.4
+
 Once the extension has been downloaded and the virtualenv has been activated, the extension can be installed with the
 following command: ::
 
-    $ python setup.py install
-
-Or if you want to install the extension for development: ::
 
     $ python setup.py develop
 
@@ -158,21 +159,15 @@ With the following meaning:
 * **show_acquire_url_on_create**: Whether to show the acquire URL (URL where access grants can be obtained) on dataset creation form
 * **show_acquire_url_on_edit**: Whether to show the acquire URL on dataset update form
 
----------
-NGSI View
----------
+------------------
+Right Time Context
+------------------
 
-This guide covers the installation of the NGSI View CKAN extension ngsiv2, compatible with the software provided
-as part of the FIWARE release 6.
+This guide covers the installation of the Right Time Context CKAN extension v0.9, compatible with the software provided
+as part of the FIWARE release 7.
 
 Installation
 ++++++++++++
-
-The NGSI View extension is available in GitHub and can be downloaded with the following commands: ::
-
-    $ git clone https://github.com/conwetlab/ckanext-ngsiview
-    $ cd ckanext-ngsiview
-    $ git checkout ngsiv2
 
 To install the extension in CKAN, it is required to activate the CKAN virtual environment as follows: ::
 
@@ -181,12 +176,18 @@ To install the extension in CKAN, it is required to activate the CKAN virtual en
 .. note::
    The previous command is supposing that your CKAN virtualenv is in /usr/lib/ckan/default
 
+The Right Time Context extension is available in pip and can be installed with the following command: ::
+
+    $ pip install ckanext-right_time_context==0.9
+
+If you want to install the extension for development, you can download it with the following commands: ::
+
+    $ git clone https://github.com/conwetlab/ckanext-right_time_context
+    $ cd ckanext-right_time_context
+    $ git checkout v0.9
+
 Once the extension has been downloaded and the virtualenv has been activated, the plugin can be installed with the
 following command: ::
-
-    $ python setup.py install
-
-Or if you want to install the plugin for development: ::
 
     $ python setup.py develop
 
@@ -194,19 +195,19 @@ Or if you want to install the plugin for development: ::
 Configuration
 +++++++++++++
 
-To activate the NGSI View extension it is required to include *ngsiview* in the *ckan.plugins* and *ckan.views.default_views* settings of
+To activate the Right Time Context extension it is required to include *right_time_context* in the *ckan.plugins* and *ckan.views.default_views* settings of
 your *.ini* file: ::
 
-    ckan.plugins = ngsiview <other-plugins>
+    ckan.plugins = right_time_context <other-plugins>
 
-    ckan.views.default_views = ngsiview <other-views>
+    ckan.views.default_views = right_time_context <other-views>
 
 -------------
 BAE Publisher
 -------------
 
-This guide covers the installation of the BAE Publisher CKAN extension v0.4, compatible with the software provided
-as part of the FIWARE release 6.
+This guide covers the installation of the BAE Publisher CKAN extension v0.5, compatible with the software provided
+as part of the FIWARE release 7.
 
 Requirements
 ++++++++++++
@@ -218,12 +219,6 @@ Requirements
 Installation
 ++++++++++++
 
-The BAE Publisher extension is available in GitHub and can be downloaded with the following commands: ::
-
-    $ git clone https://github.com/FIWARE-TMForum/ckanext-baepublisher
-    $ cd ckanext-baepublisher
-    $ git checkout v0.4
-
 To install the extension in CKAN, it is required to activate the CKAN virtual environment as follows: ::
 
     $ . /usr/lib/ckan/default/bin/activate
@@ -231,12 +226,18 @@ To install the extension in CKAN, it is required to activate the CKAN virtual en
 .. note::
    The previous command is supposing that your CKAN virtualenv is in /usr/lib/ckan/default
 
+The BAE Publisher extension is available in pip and can be installed with the following command: ::
+
+    $ pip install ckanext-baepublisher==0.5
+
+If you want to install the extension for development, you can download it with the following commands: ::
+
+    $ git clone https://github.com/FIWARE-TMForum/ckanext-baepublisher
+    $ cd ckanext-baepublisher
+    $ git checkout v0.5
+
 Once the extension has been downloaded and the virtualenv has been activated, the extension can be installed with the
 following command: ::
-
-    $ python setup.py install
-
-Or if you want to install the extension for development: ::
 
     $ python setup.py develop
 
@@ -255,8 +256,8 @@ file. In addition, it is necessary to configure the URL of the BAE instance to b
 WireCloud View
 --------------
 
-This guide covers the installation of the WireCloud View CKAN extension v1.0.0, compatible with the software provided
-as part of the FIWARE release 6.
+This guide covers the installation of the WireCloud View CKAN extension v1.1.0, compatible with the software provided
+as part of the FIWARE release 7.
 
 Requirements
 ++++++++++++
@@ -267,12 +268,6 @@ Requirements
 Installation
 ++++++++++++
 
-The WireCloud View extension is available in GitHub and can be downloaded with the following commands: ::
-
-    $ git clone https://github.com/conwetlab/ckanext-wirecloud_view
-    $ cd ckanext-wirecloud_view
-    $ git checkout 1.0.0
-
 To install the extension in CKAN, it is required to activate the CKAN virtual environment as follows: ::
 
     $ . /usr/lib/ckan/default/bin/activate
@@ -280,12 +275,18 @@ To install the extension in CKAN, it is required to activate the CKAN virtual en
 .. note::
    The previous command is supposing that your CKAN virtualenv is in /usr/lib/ckan/default
 
+The WireCloud View  extension is available in pip and can be installed with the following command: ::
+
+    $ pip install ckanext-wirecloud_view==1.1.0
+
+If you want to install the extension for development, you can download it with the following commands: ::
+
+    $ git clone https://github.com/conwetlab/ckanext-wirecloud_view
+    $ cd ckanext-wirecloud_view
+    $ git checkout 1.1.0
+
 Once the extension has been downloaded and the virtualenv has been activated, the extension can be installed with the
 following command: ::
-
-    $ python setup.py install
-
-Or if you want to install the extension for development: ::
 
     $ python setup.py develop
 
@@ -312,17 +313,11 @@ With the following meaning:
 Data Requests
 -------------
 
-This guide covers the installation of the Data Requests CKAN extension v1.0.0, compatible with the software provided
-as part of the FIWARE release 6.
+This guide covers the installation of the Data Requests CKAN extension v1.1.0, compatible with the software provided
+as part of the FIWARE release 7.
 
 Installation
 ++++++++++++
-
-The Data Requests extension is available in GitHub and can be downloaded with the following commands: ::
-
-    $ git clone https://github.com/conwetlab/ckanext-datarequests
-    $ cd ckanext-datarequests
-    $ git checkout v1.0.0
 
 To install the extension in CKAN, it is required to activate the CKAN virtual environment as follows: ::
 
@@ -331,12 +326,18 @@ To install the extension in CKAN, it is required to activate the CKAN virtual en
 .. note::
    The previous command is supposing that your CKAN virtualenv is in /usr/lib/ckan/default
 
+The Data Requests extension is available in pip and can be installed with the following command: ::
+
+    $ pip install ckanext-datarequests==1.1.0
+
+If you want to install the extension for development, you can download it with the following commands: ::
+
+    $ git clone https://github.com/conwetlab/ckanext-datarequests
+    $ cd ckanext-datarequests
+    $ git checkout v1.1.0
+
 Once the extension has been downloaded and the virtualenv has been activated, the extension can be installed with the
 following command: ::
-
-    $ python setup.py install
-
-Or if you want to install the extension for development: ::
 
     $ python setup.py develop
 
