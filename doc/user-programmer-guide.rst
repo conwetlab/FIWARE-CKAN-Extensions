@@ -6,7 +6,7 @@ User Guide
 Introduction
 ------------
 
-This user guide covers the FIWARE CKAN extensions for the FIWARE release 6. For details on
+This user guide covers the FIWARE CKAN extensions for the FIWARE release 7. For details on
 the usage of CKAN itself please refer to the `CKAN User Guide <http://docs.ckan.org/en/latest/user-guide.html>`__
 
 Any feedback on this document is highly welcomed, including bugs, typos or things you think should be included but aren't.
@@ -98,14 +98,14 @@ These *acquired* datasets are also located in the user dashboard under the *Acqu
    :align: center
    :scale: 50%
 
----------
-NGSI View
----------
+------------------
+Right Time Context
+------------------
 
-The NGSI View extension enables the publication of right-time context information as dataset resources by allowing to
+The Right Time Context extension enables the publication of right-time context information as dataset resources by allowing to
 configure a NGSIv2 query.
 
-This queries are provided as dataset resources, so the extension modifies the dataset resource form
+These queries are provided as dataset resources, so the extension modifies the dataset resource form
 
 .. image:: images/ngsi1.png
    :align: center
