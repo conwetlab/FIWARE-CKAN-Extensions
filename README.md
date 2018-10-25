@@ -30,7 +30,7 @@ login in the web portal and accessing the APIs using OAuth2 access tokens.
 * **[Private Datasets](https://github.com/conwetlab/ckanext-privatedatasets)**: This extension extends the default
 dataset access permissions by including an access list where it is possible to specify what users can access to the
 data, even if they are not part of the owner organization
-* **[NGSI View](https://github.com/conwetlab/ckanext-ngsiview)**: This extension enables the publication
+* **[Right Time Context](https://github.com/conwetlab/ckanext-right_time_context)**: This extension enables the publication
 of right-time queries to the [Context Broker](https://catalogue.fiware.org/enablers/publishsubscribe-context-broker-orion-context-broker) as dataset resources.
 * **[BAE Publisher](https://github.com/FIWARE-TMForum/ckanext-baepublisher)**: This extension integrates CKAN
 with the FIWARE [Business API Ecosystem](https://catalogue.fiware.org/enablers/business-api-ecosystem-biz-ecosystem-ri), enabling
