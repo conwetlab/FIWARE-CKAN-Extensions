@@ -14,6 +14,8 @@ data portal platform with the main FIWARE GEs, enhancing the default CKAN
 behaviour with improved access control, publication of right-time context data,
 and rich visualization features.
 
+The roadmap of this FIWARE GE is described [here](https://github.com/conwetlab/FIWARE-CKAN-Extensions/blob/master/roadmap.md)
+
 This project is part of [FIWARE](https://www.fiware.org/). For more information
 check the FIWARE Catalogue entry for
 [Data Publication and Monetization](https://github.com/Fiware/catalogue/tree/master/data-publication).
