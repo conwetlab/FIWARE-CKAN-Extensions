@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt install -y python-dev libpq-dev python-pip python-virtualenv git-core tzdata && \
+RUN apt-get update && apt install -y python-dev libpq-dev python-pip python-virtualenv git-core tzdata curl && \
     ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
     \
@@ -34,6 +34,8 @@ VOLUME /var/lib/ckan
 COPY ./entrypoint.sh /
 
 EXPOSE 5000
+
+HEALTHCHECK CMD curl --fail http://localhost:5000/api/action/package_list || exit 1
 
 ENTRYPOINT ["/entrypoint.sh"]
 
