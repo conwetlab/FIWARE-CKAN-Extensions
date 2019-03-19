@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 COPY libapache2-mod-wsgi_4.5.11-1_amd64.deb /libapache2-mod-wsgi_4.5.11-1_amd64.deb
 
-RUN apt-get update && apt install -y python-dev libpq-dev python-pip python-virtualenv git-core tzdata libpq5 && \
+RUN apt-get update && apt install -y python-dev libpq-dev python-pip python-virtualenv git-core tzdata libpq5 curl && \
     ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
     \
@@ -38,6 +38,8 @@ VOLUME /var/lib/ckan
 COPY ./entrypoint.sh /
 
 EXPOSE 5000
+
+HEALTHCHECK CMD curl --fail http://localhost:5000/api/action/package_list || exit 1
 
 ENTRYPOINT ["/entrypoint.sh"]
 
