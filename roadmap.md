@@ -17,9 +17,11 @@ any time.
 ## Short term
 
 The following list of features are planned to be addressed in the short term,
-and incorporated in the next release of the product planned for February 2019:
+and incorporated in the next release of the product planned for May 2019:
 
 * GE requirements: Include MUST and SHOULD requirements for active GEs as specified by the FIWARE TSC
+* OAuth2 JWT: Include support to JSON Web Tokens in OAuth2 extension
+* Private Datasets description: Update private datasets access control to allow users to access to the dataset description page of a private dataset.
 
 ## Medium term
 
