@@ -21,7 +21,7 @@ The current version of the software has been tested in CKAN versions 2.7, and 2.
 OAuth2
 ------
 
-This guide covers the installation of the OAuth2 CKAN extension v0.6.1, compatible with the software provided
+This guide covers the installation of the OAuth2 CKAN extension v0.7.0, compatible with the software provided
 as part of the FIWARE release 7.
 
 Installation
@@ -36,13 +36,13 @@ To install the extension in CKAN, it is required to activate the CKAN virtual en
 
 The OAuth2 extension is available in pip and can be installed as follows: ::
 
-    $ pip install ckanext-oauth2==0.6.1
+    $ pip install ckanext-oauth2==0.7.0
 
 If you want to install the extension for development, you can download it with the following commands: ::
 
     $ git clone https://github.com/conwetlab/ckanext-oauth2
     $ cd ckanext-oauth2
-    $ git checkout v0.6.1
+    $ git checkout v0.7.0
 
 Once the extension has been downloaded and the virtualenv has been activated, the extension can be installed with the
 following command: ::
@@ -58,22 +58,23 @@ To activate the OAuth2 extension in CKAN, it is required to include it in the *c
     ckan.plugins = oauth2 <other-plugins>
 
 Additionally, this extension requires a set of settings to be provided in the *.ini* file in order to configure its
-behaviour and the integration with the selected IdM. In particular: ::
+behaviour and the integration with the selected IdM. In particular, The following is an example of configuration for using FIWARE Keyrock v7.6.0: ::
 
     ## OAuth2 configuration
     ckan.oauth2.logout_url = /user/logged_out
-    ckan.oauth2.register_url = https://YOUR_OAUTH_SERVICE/users/sign_up
-    ckan.oauth2.reset_url = https://YOUR_OAUTH_SERVICE/users/password/new
-    ckan.oauth2.edit_url = https://YOUR_OAUTH_SERVICE/settings
-    ckan.oauth2.authorization_endpoint = https://YOUR_OAUTH_SERVICE/oauth2/authorize
-    ckan.oauth2.token_endpoint = https://YOUR_OAUTH_SERVICE/oauth2/token
-    ckan.oauth2.profile_api_url = https://YOUR_OAUTH_SERVICE/user
+    ckan.oauth2.register_url = http://YOUR_OAUTH_SERVICE/sign_up
+    ckan.oauth2.reset_url = http://YOUR_OAUTH_SERVICE/users/password/new
+    ckan.oauth2.edit_url = http://YOUR_OAUTH_SERVICE/idm/settings
+    ckan.oauth2.authorization_endpoint = http://YOUR_OAUTH_SERVICE/oauth2/authorize
+    ckan.oauth2.token_endpoint = http://YOUR_OAUTH_SERVICE/oauth2/token
+    ckan.oauth2.profile_api_url = http://YOUR_OAUTH_SERVICE/user
     ckan.oauth2.client_id = CLIENT_ID
-    ckan.oauth2.client_secret = CLIENT_SECRET
+    ckan.oauth2.client_secret = YOUR_CLIENT_SECRET
+    ckan.oauth2.jwt.enable = false
     ckan.oauth2.scope = all_info
     ckan.oauth2.rememberer_name = auth_tkt
-    ckan.oauth2.profile_api_user_field = id
-    ckan.oauth2.profile_api_fullname_field = displayName
+    ckan.oauth2.profile_api_user_field = username
+    ckan.oauth2.profile_api_fullname_field = username
     ckan.oauth2.profile_api_mail_field = email
     ckan.oauth2.authorization_header = Bearer
 
@@ -87,11 +88,35 @@ With the following meaning:
 * **token_endpoint**: URL in the selected IDM for retrieving the access token in the OAuth2 process
 * **profile_api_url**: URL in the selected IDM for retrieving user info
 * **client_id**: Client ID given by the IDM to the CKAN instance
+* **jwt.enable**: Whether to use JSON Web Tokens to load user info
 * **client_secret**: Client Secret given by the selected IDM for the CKAN instance
 * **profile_api_user_field**: Name of the field which contains the user id within the user info object as provided by the IDM
 * **profile_api_fullname_field**: Name of the field which contains the user display name within the user info object as provided by the IDM
 * **profile_api_mail_field**: Name of the field which contains the user email within the user info object as provided by the IDM
-* **authorization_header**: Header that will be used for accessing CKAN APIs using an access token for authentication
+* **authorization_header**: Type of header that will be used for accessing CKAN APIs using an access token for authentication
+
+
+Version 0.7.0 of the extension supports the usage of JSON Web Tokens of both FIWARE Keyrock and JBoss Keycloak.
+To enable JWT using Keyrock the following changes in the configuration are required: ::
+
+    ckan.oauth2.jwt.enable = true
+    ckan.oauth2.scope = jwt
+
+On the other hand, the following is a valid configuration for Keycloak IDM: ::
+
+    ckan.oauth2.logout_url = /user/logged_out
+    ckan.oauth2.edit_url = http://YOUR_OAUTH_SERVICE/auth/realms/REALM/account
+    ckan.oauth2.authorization_endpoint = http://YOUR_OAUTH_SERVICE/auth/realms/REALM/protocol/openid-connect/auth
+    ckan.oauth2.token_endpoint = http://YOUR_OAUTH_SERVICE/auth/realms/REALM/protocol/openid-connect/token
+    ckan.oauth2.profile_api_url = http://YOUR_OAUTH_SERVICE/auth/realms/REALM/protocol/openid-connect/userinfo
+    ckan.oauth2.client_id = CLIENT_ID
+    ckan.oauth2.client_secret = YOUR_CLIENT_SECRET
+    ckan.oauth2.jwt.enable = true
+    ckan.oauth2.scope = profile email openid
+    ckan.oauth2.profile_api_user_field = user_name
+    ckan.oauth2.profile_api_mail_field = email
+    ckan.oauth2.authorization_header = Bearer
+    ckan.oauth2.profile_api_fullname_field = user_name
 
 It is important to note that this extension has been designed by default to be used in a CKAN deployed in HTTPS, so trying
 to use it in an unsecured CKAN instance will result in an error. To use this extension in a not secured instance it is
