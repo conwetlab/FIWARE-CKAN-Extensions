@@ -22,7 +22,9 @@ RUN apt-get update && apt install -y python-dev libpq-dev python-pip python-virt
     ln -s /usr/lib/ckan/default/src/ckan/ckan/config/who.ini /etc/ckan/default/who.ini && \
     ln -s /usr/lib/ckan/default/bin/paster /usr/local/bin/ckan-paster && \
     apt remove -y --autoremove python-dev libpq-dev && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    mkdir /opt/ckan/files && \
+    chown -R www-data /opt/ckan/files
 
 COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY ./ports.conf /etc/apache2/ports.conf

@@ -46,6 +46,11 @@ write_config () {
     fi
 
     sed -ri "s/^(ckan.plugins = .+)/\1 ${plugins}/" /etc/ckan/default/production.ini
+
+    if [ ! -z "${CKAN_FILE_ALLOWED}" ] && [ ${CKAN_FILE_ALLOWED} == "True" ]; then
+        sed -ri "s/#ckan\.storage_path = \/var\/lib\/ckan/ckan\.storage_path = \/opt\/ckan\/files/" /etc/ckan/default/production.ini
+        sed -ri "s/#ckan\.max_resource_size = 10/ckan\.max_resource_size = 200/" /etc/ckan/default/production.ini
+    fi
 }
 
 # If we don't already have a config file, bootstrap
@@ -76,3 +81,8 @@ ckan-paster --plugin=ckan db init -c "${CKAN_CONFIG}/production.ini"
 /usr/sbin/apache2ctl graceful-stop
 rm -f /var/run/apache2/apache2.pid
 exec /usr/sbin/apache2ctl -D FOREGROUND
+
+
+
+#ckan.storage_path = /var/lib/ckan
+#ckan.max_resource_size = 10

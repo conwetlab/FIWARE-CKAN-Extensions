@@ -25,7 +25,7 @@ services:
             - CKAN_SITE_URL=${CKAN_SITE_URL}
             - CKAN_MAX_UPLOAD_SIZE_MB=${CKAN_MAX_UPLOAD_SIZE_MB}
             - CKAN_VERIFY_REQUESTS=True
-
+            - CKAN_FILE_ALLOWED=True
 
             #
             # OAuth2 (uncomment the following environment variables for
