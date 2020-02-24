@@ -17,11 +17,9 @@ any time.
 ## Short term
 
 The following list of features are planned to be addressed in the short term,
-and incorporated in the next release of the product planned for May 2019:
+and incorporated in the next release of the product planned for March 2020:
 
-* GE requirements: Include MUST and SHOULD requirements for active GEs as specified by the FIWARE TSC
-* OAuth2 JWT: Include support to JSON Web Tokens in OAuth2 extension
-* Private Datasets description: Update private datasets access control to allow users to access to the dataset description page of a private dataset.
+* GUI Theme: New GUI theme improving default CKAN style
 
 ## Medium term
 
@@ -29,9 +27,8 @@ The following list of features are planned to be addressed in the medium term,
 typically within the subsequent release(s) generated in the next **9 months**
 after next planned release:
 
+* Support NGSI-LD: Update NGSI Extension to support NGSI-LD publication
 * Improved NGSI discovery: Update NGSI Extension to support advanced search mechanisms based on NGSI metadata
-* Improved data visualization: Update WireCloud view extension tu support the creation of dataset level dashboards
-* Extend WireCloud wizzard: Update WireCloud wizard used in WireCloud view extension to support more types of data
 
 ## Long term
 
@@ -40,5 +37,7 @@ of the product even though development of these features has not yet been
 scheduled for a release in the near future. Please feel free to contact us if
 you wish to get involved in the implementation or influence the roadmap
 
+* IDM Federation: Support to publish NGSI datasets secured by different IDMs by means of IDM
+federation.
 * Improved permission management: Update private datasets extension to support more granularity in dataset access, including the posibility of pre-visualizing data, accessing particular attributes, etc
 
